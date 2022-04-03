@@ -51,8 +51,6 @@ $( document ).ready(function() {
 
       let value = document.getElementById("input-amount-1").value;
 
-      console.log(currency1, currency2, value);
-
       if(value == "") {
         document.getElementById("input-amount-2").value = "";
       } else {
@@ -84,7 +82,6 @@ function convert(currency1, currency2, value) {
   fetch(`https://${host}/latest?amount=${value}&from=${currency1}&to=${currency2}`)
     .then((val) => val.json())
     .then((val) => {
-      console.log(Object.values(val.rates)[0]);
       document.getElementById("input-amount-2").value = Object.values(val.rates)[0];
     });
 
@@ -92,7 +89,6 @@ function convert(currency1, currency2, value) {
   fetch(`https://${host}/latest?amount=1&from=${currency1}&to=${currency2}`)
   .then((val) => val.json())
   .then((val) => {
-    console.log(Object.values(val.rates)[0]);
     document.getElementById("conversion-rate").textContent = Object.values(val.rates)[0];
   });
 }
