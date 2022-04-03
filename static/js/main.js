@@ -87,6 +87,14 @@ function convert(currency1, currency2, value) {
       console.log(Object.values(val.rates)[0]);
       document.getElementById("input-amount-2").value = Object.values(val.rates)[0];
     });
+
+  // Gets Current Conversion rate
+  fetch(`https://${host}/latest?amount=1&from=${currency1}&to=${currency2}`)
+  .then((val) => val.json())
+  .then((val) => {
+    console.log(Object.values(val.rates)[0]);
+    document.getElementById("conversion-rate").textContent = Object.values(val.rates)[0];
+  });
 }
 
 

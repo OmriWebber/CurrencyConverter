@@ -1,0 +1,16 @@
+.content {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.currency-input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.currency-converter select {
+    padding: 10px;
+    border: none;
+}
