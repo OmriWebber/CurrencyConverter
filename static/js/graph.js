@@ -3,6 +3,9 @@ var graphLabels = [];
 
 var myChart;
 
+
+
+
 $( document ).ready(function() {
     // Load Currency Names
     fetch('https://api.frankfurter.app/currencies')
@@ -10,8 +13,8 @@ $( document ).ready(function() {
         .then((data) => {
             $.each(data, function(index, value) {
                 var datacode = JSON.stringify(value.code);
-                $("#graph-base-currency-selector").append("<option class='test' value='"+ index + "'><span id='currency-1'>" + value + "</span></option>");
-                $("#graph-convert-currency-selector").append("<option class='test' value='"+ index + "'><span id='currency-1'>" + value + "</span></option>");
+                $("#graph-base-currency-selector").append("<option class='currency-option' value='"+ index + "'><span>" + value + "</span></option>");
+                $("#graph-convert-currency-selector").append("<option class='currency-option' value='"+ index + "'><span>" + value + "</span></option>");
                 $('#graph-base-currency-selector option[value="USD"]').attr("selected",true);
                 $('#graph-convert-currency-selector option[value="NZD"]').attr("selected",true);
             });
@@ -22,6 +25,7 @@ $( document ).ready(function() {
             getGraphData(currency1, currency2);
     });
 
+    
     
 
     
@@ -57,7 +61,7 @@ function displayGraph(graphLabels, graphData){
                 borderColor: [
                     'rgba(0, 174, 255, 0.69)'
                 ],
-                borderWidth: 3
+                borderWidth: 2
             }]
         },
         options: {
@@ -106,3 +110,40 @@ $('#graph-convert-currency-selector').on('change', function() {
         displayGraph(newGraphLabels, newGraphData);
     });
 });
+
+function setDate(days){
+    var date = new Date();
+    date.setDate(date.getDate() - days);
+
+    var formattedDate;
+
+    if((date.getMonth()+1) > 0 && (date.getMonth()+1) < 10 && date.getDate() > 0 && date.getDate() < 10) {
+        formattedDate = date.getFullYear()+'-0'+(date.getMonth()+1)+'-0'+date.getDate();
+    } else if(date.getDate() > 0 && date.getDate() < 10) {
+        formattedDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-0'+date.getDate();
+    } else if ((date.getMonth()+1) > 0 && (date.getMonth()+1) < 10){
+        formattedDate = date.getFullYear()+'-0'+(date.getMonth()+1)+'-'+date.getDate();
+    } else {
+        formattedDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+    }
+    setGraphDate(formattedDate);
+}
+
+function setGraphDate(date){
+    var newGraphData = [];
+    var newGraphLabels = [];
+    let currency1 = $('#graph-base-currency-selector option:selected').attr("value");
+    let currency2 = $('#graph-convert-currency-selector option:selected').attr("value");
+        
+    fetch(`https://api.frankfurter.app/${date}..?from=${currency1}`)
+    .then((data) => data.json())
+    .then((data) => {
+        for(let i = 0; i < Object.keys(data.rates).length; i++) {
+            newGraphData.push(Object.values(data.rates)[i][currency2]);
+            newGraphLabels.push(Object.keys(data.rates)[i]);
+        }
+        myChart.destroy();
+        displayGraph(newGraphLabels, newGraphData);
+    });
+
+}

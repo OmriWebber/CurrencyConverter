@@ -32,7 +32,7 @@ function displayNews(currency){
             console.log(data);
             for(let i = 0; i < data.articles.length; i++) {
                 console.log(data.articles[i]);
-                articles.innerHTML += "<div class='article'><<p>" + data.articles[i].title + "</p><p>" + data.articles[i].content + "</p></div>";
+                articles.innerHTML += "<div class='row article'><div class='col-4'><img class='article-img' src='" + data.articles[i].urlToImage + "'></div><div class='col-8'><p class='title'>" + data.articles[i].title + "</p><p class='desc'>" + data.articles[i].content + "</p></div></div>";
             }
     });    
 

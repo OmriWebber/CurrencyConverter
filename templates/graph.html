@@ -3,10 +3,46 @@
     {% include ['head.html'] %}
     <body>
         {% include ['navbar.html'] %}
-        <div class="container">
-            <select name="currency-selector" id="graph-base-currency-selector"></select>
-            <select name="currency-selector" id="graph-convert-currency-selector"></select>
-
+        <div class="graph container">
+            <div class="row">
+                <div class="col">
+                    <div class="selectCurrency row">
+                        <div class="col">
+                            <span>From</span><br>
+                            <select name="currency-selector" id="graph-base-currency-selector"></select>
+                        </div>
+                        <div class="col">
+                            <span>To</span><br>
+                        <select name="currency-selector" id="graph-convert-currency-selector"></select>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="col">
+                    <div class="dateSort">
+                        <button value="7" onclick="setDate(7)">
+                            <span>7d</span>
+                        </button>
+                        <button value="30" onclick="setDate(30)">
+                            <span>1m</span>
+                        </button>
+                        <button value="180" onclick="setDate(180)">
+                            <span>6m</span>
+                        </button>
+                        <button value="365" onclick="setDate(365)">
+                            <span>1y</span>
+                        </button>
+                        <button value="730" onclick="setDate(730)">
+                            <span>2y</span>
+                        </button>
+                        <button value="1826" onclick="setDate(1826)">
+                            <span>5y</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
             <canvas id="myChart" width="400" height="200"></canvas>
         </div>
 
