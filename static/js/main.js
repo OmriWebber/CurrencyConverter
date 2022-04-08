@@ -71,9 +71,7 @@ function updatevalue() {
 
   if (currency1 != currency2) {
     convert(currency1, currency2, value);
-  } else {
-    alert("Choose Different Currency");
-  }
+  } 
 }
 
 function convert(currency1, currency2, value) {
@@ -91,6 +89,15 @@ function convert(currency1, currency2, value) {
   .then((val) => {
     document.getElementById("conversion-rate").textContent = Object.values(val.rates)[0];
   });
+}
+
+function switchCurrency(){
+  var currency1 = $('#currency-selector-1 option:selected').attr("value");
+  var currency2 = $('#currency-selector-2 option:selected').attr("value");
+
+  $('#currency-selector-1').val(currency2).change();
+  $('#currency-selector-2').val(currency1).change();
+
 }
 
 

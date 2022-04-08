@@ -1,6 +1,3 @@
-var graphData = [];
-var graphLabels = [];
-
 var myChart;
 
 $( document ).ready(function() {
@@ -23,11 +20,12 @@ $( document ).ready(function() {
     });
 });
 
-
 function getGraphData(baseCurrency, convertCurrency){
-    fetch(`https://api.frankfurter.app/2020-01-01..?from=USD`)
+    fetch(`https://api.frankfurter.app/2020-01-01..?from=${baseCurrency}`)
         .then((data) => data.json())
         .then((data) => {
+            var graphData = [];
+            var graphLabels = [];
             for(let i = 0; i < Object.keys(data.rates).length; i++) {
                 graphData.push(Object.values(data.rates)[i][convertCurrency]);
                 graphLabels.push(Object.keys(data.rates)[i]);
@@ -35,7 +33,6 @@ function getGraphData(baseCurrency, convertCurrency){
             displayGraph(graphLabels, graphData, convertCurrency);
     });
 }
-
 
 function displayGraph(graphLabels, graphData, currency){
     const ctx = document.getElementById('myChart').getContext('2d');
@@ -137,5 +134,14 @@ function setGraphDate(date){
         myChart.destroy();
         displayGraph(newGraphLabels, newGraphData, currency2);
     });
+
+}
+
+function switchCurrency(){
+    var currency1 = $('#graph-base-currency-selector option:selected').attr("value");
+    var currency2 = $('#graph-convert-currency-selector option:selected').attr("value");
+
+    $('#graph-base-currency-selector').val(currency2).change();
+    $('#graph-convert-currency-selector').val(currency1).change();
 
 }

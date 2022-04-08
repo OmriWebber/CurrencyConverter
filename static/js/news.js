@@ -27,7 +27,7 @@ function displayNews(currency){
         }
     };
 
-    var url = 'https://free-news.p.rapidapi.com/v1/search?q=' + currency + '&lang=en'
+    var url = 'https://free-news.p.rapidapi.com/v1/search?q=' + currency + '&lang=en';
     
     // Fetch News from API
     fetch(url, options)

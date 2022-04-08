@@ -79,3 +79,17 @@ select:hover {
 .article .title {
     font-weight: 600;
 }
+
+.switchCurrency {
+    text-align: center;
+    cursor: pointer;
+}
+.switchIcon {
+    height: 20px;
+    margin: 30px 0px 0 36px;
+}
+
+.switchIconConverter {
+    height: 20px;
+    margin: 0px 5px 10px 0px;
+}

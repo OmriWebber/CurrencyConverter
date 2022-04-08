@@ -12,9 +12,13 @@
                             <select name="currency-selector" id="graph-base-currency-selector"></select>
                         </div>
                         <div class="col">
-                            <span>To</span><br>
-                        <select name="currency-selector" id="graph-convert-currency-selector"></select>
+                            <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
                         </div>
+                        <div class="col">
+                            <span>To</span><br>
+                            <select name="currency-selector" id="graph-convert-currency-selector"></select>
+                        </div>
+
                     </div>
                     
                 </div>
