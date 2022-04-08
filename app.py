@@ -19,6 +19,9 @@ def recent_news():
     return render_template('recent_news.html', name='Currency Converter - Recent News')
 
 
+if __name__ == '__main__':
+    app.run()
+
 
 
 

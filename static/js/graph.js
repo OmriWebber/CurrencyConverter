@@ -3,9 +3,6 @@ var graphLabels = [];
 
 var myChart;
 
-
-
-
 $( document ).ready(function() {
     // Load Currency Names
     fetch('https://api.frankfurter.app/currencies')
@@ -24,11 +21,6 @@ $( document ).ready(function() {
 
             getGraphData(currency1, currency2);
     });
-
-    
-    
-
-    
 });
 
 
@@ -40,19 +32,19 @@ function getGraphData(baseCurrency, convertCurrency){
                 graphData.push(Object.values(data.rates)[i][convertCurrency]);
                 graphLabels.push(Object.keys(data.rates)[i]);
             }
-            displayGraph(graphLabels, graphData);
+            displayGraph(graphLabels, graphData, convertCurrency);
     });
 }
 
 
-function displayGraph(graphLabels, graphData){
+function displayGraph(graphLabels, graphData, currency){
     const ctx = document.getElementById('myChart').getContext('2d');
     myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: graphLabels,
             datasets: [{
-                label: 'Currency Value',
+                label: currency + ' Value',
                 data: graphData,
                 backgroundColor: [
                     'rgba(0, 174, 255, 0.69)'
@@ -89,7 +81,7 @@ $('#graph-base-currency-selector').on('change', function() {
             newGraphLabels.push(Object.keys(data.rates)[i]);
         }
         myChart.destroy();
-        displayGraph(newGraphLabels, newGraphData);
+        displayGraph(newGraphLabels, newGraphData, currency2);
     });
 });
 
@@ -107,7 +99,7 @@ $('#graph-convert-currency-selector').on('change', function() {
             newGraphLabels.push(Object.keys(data.rates)[i]);
         }
         myChart.destroy();
-        displayGraph(newGraphLabels, newGraphData);
+        displayGraph(newGraphLabels, newGraphData, currency2);
     });
 });
 
@@ -143,7 +135,7 @@ function setGraphDate(date){
             newGraphLabels.push(Object.keys(data.rates)[i]);
         }
         myChart.destroy();
-        displayGraph(newGraphLabels, newGraphData);
+        displayGraph(newGraphLabels, newGraphData, currency2);
     });
 
 }

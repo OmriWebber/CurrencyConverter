@@ -7,7 +7,6 @@ $( document ).ready(function() {
     .then((data) => data.json())
     .then((data) => {
         $.each(data, function(index, value) {
-            var datacode = JSON.stringify(value.code);
             $("#news-currency-selector").append("<option class='test' value='"+ index + "'><span>" + value + "</span></option>");
             $('#news-currency-selector option[value="USD"]').attr("selected",true);
         });
@@ -17,22 +16,38 @@ $( document ).ready(function() {
     });
 });
 
+
 function displayNews(currency){
     // Declare API query
-    var url = 'https://newsapi.org/v2/everything?' +
-            'q=' + currency + '&' +
-            'from=2022-04-04&' +
-            'sortBy=popularity&' +
-            'language=en&' +
-            'apiKey=1512bdf4d14d4a6086592e85f7ab2b70';
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Host': 'free-news.p.rapidapi.com',
+            'X-RapidAPI-Key': '9f889d0196mshf872e9f983ac8dep173652jsnbd9100263b81'
+        }
+    };
+
+    var url = 'https://free-news.p.rapidapi.com/v1/search?q=' + currency + '&lang=en'
+    
     // Fetch News from API
-    fetch(url)
+    fetch(url, options)
         .then((data) => data.json())
         .then((data) => {
             console.log(data);
             for(let i = 0; i < data.articles.length; i++) {
-                console.log(data.articles[i]);
-                articles.innerHTML += "<div class='row article'><div class='col-4'><img class='article-img' src='" + data.articles[i].urlToImage + "'></div><div class='col-8'><p class='title'>" + data.articles[i].title + "</p><p class='desc'>" + data.articles[i].content + "</p></div></div>";
+                var date = new Date(data.articles[i].published_date);
+                console.log(date.toString);
+                articles.innerHTML +=   "<div class='row article'>" + 
+                                            "<div class='col-4'>" +
+                                                "<img class='article-img' src='" + data.articles[i].media + "'>" +
+                                            "</div>" +
+                                            "<div class='col-8'>" + 
+                                                "<p class='title'>" + data.articles[i].title + "</p>" + 
+                                                "<p class='date'>" + (date.toString()).slice(0,21)  + "</p>" +
+                                                "<p class='desc'>" + data.articles[i].summary + "</p>" + 
+                                            "</div>" +    
+                                        "</div>" +
+                                        "<hr>";
             }
     });    
 
@@ -40,7 +55,7 @@ function displayNews(currency){
 
 $('#news-currency-selector').on('change', function() {  
     articles.innerHTML = "";
-    let currency = $('#graph-base-currency-selector option:selected').attr("value");
+    let currency = $('#news-currency-selector option:selected').attr("value");
     displayNews(currency);
 });
 
