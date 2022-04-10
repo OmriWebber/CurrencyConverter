@@ -1,6 +1,8 @@
 var myChart;
 
 $( document ).ready(function() {
+    user_name = $('.user-name').text().slice(1,2);
+    $('.user-letter').text(user_name.toUpperCase());
     // Load Currency Names
     fetch('https://api.frankfurter.app/currencies')
         .then((data) => data.json())
@@ -59,6 +61,9 @@ function displayGraph(graphLabels, graphData, currency){
                 y: {
                     beginAtZero: false
                 }
+            },
+            legend: {
+                onClick: (e) => e.stopPropagation()
             }
         }
     });

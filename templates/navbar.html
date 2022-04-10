@@ -9,6 +9,14 @@
         <a class="nav-link" aria-current="page" href="{{ url_for('index') }}">Convert</a>
         <a class="nav-link" href="{{ url_for('history') }}">History</a>
         <a class="nav-link" href="{{ url_for('recent_news') }}">Recent News</a>
+        <span class="spacer"><span class="line"></span></span>
+        {% if g.user %}
+          <a class="nav-link user-name" href="{{ url_for('profile') }}"><span class="user-container"><span class="user-bg"><p class="user-letter"></p></span></span> {{g.user['username']}}</a>
+          <a class="nav-link logout" href="{{ url_for('auth.logout') }}">Logout</a>
+        {% else %}
+          <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+          <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+        {% endif %}
       </div>
     </div>
   </div>

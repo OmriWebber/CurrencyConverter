@@ -1,7 +1,23 @@
-from flask import Flask
-from flask import render_template
+import os
+
+from flask import Flask,render_template, request, g
+from flask_mysqldb import MySQL
+
 
 app = Flask(__name__)
+app.config.from_mapping(
+        SECRET_KEY='dev'
+    )
+
+app.config['MYSQL_HOST'] = '66.198.240.39'
+app.config['MYSQL_USER'] = 'webberwe_admin'
+app.config['MYSQL_PASSWORD'] = 'flaskapp123'
+app.config['MYSQL_DB'] = 'webberwe_currencyconverter'
+
+db = MySQL(app)
+
+import auth
+app.register_blueprint(auth.bp)
 
 
 @app.route("/")
@@ -19,10 +35,6 @@ def recent_news():
     return render_template('recent_news.html', name='Currency Converter - Recent News')
 
 
-if __name__ == '__main__':
-    app.run()
-
-
-
-
-
+@app.route("/profile")
+def profile():
+    return render_template('profile.html', name='Currency Converter')

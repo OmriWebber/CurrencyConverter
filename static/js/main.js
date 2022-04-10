@@ -1,47 +1,51 @@
 $( document ).ready(function() {
-    fetch('https://api.frankfurter.app/currencies')
-      .then((data) => data.json())
-      .then((data) => {
-        displayData(data);
-      });
+  user_name = $('.user-name').text().slice(1,2);
+  $('.user-letter').text(user_name.toUpperCase());
 
-    function displayData(data) {
-        $.each(data, function(index, value) {
-            var datavalue = JSON.stringify(value.value);
-            var datacode = JSON.stringify(value.code);
-            $("#currency-selector-1").append("<option class='test' value='"+ index + "'><span id='currency-1'>" + value + "</span></option>");
-            $("#currency-selector-2").append("<option class='test' value='"+ index + "'><span id='currency-2'>" + value + "</span></option>");
 
-            $('#currency-selector-1 option[value="USD"]').attr("selected",true);
-            $('#currency-selector-2 option[value="NZD"]').attr("selected",true);
-        });
-    }
-
-    // Restricts input for the given textbox to the given inputFilter function.
-    function setInputFilter(textbox, inputFilter) {
-      ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
-        textbox.addEventListener(event, function() {
-          if (inputFilter(this.value)) {
-            this.oldValue = this.value;
-            this.oldSelectionStart = this.selectionStart;
-            this.oldSelectionEnd = this.selectionEnd;
-          } else if (this.hasOwnProperty("oldValue")) {
-            this.value = this.oldValue;
-            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-          } else {
-            this.value = "";
-          }
-        });
-      });
-    }
-
-    setInputFilter(document.getElementById("input-amount-1"), function(value) {
-      return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+  fetch('https://api.frankfurter.app/currencies')
+    .then((data) => data.json())
+    .then((data) => {
+      displayData(data);
     });
 
-    setInputFilter(document.getElementById("input-amount-2"), function(value) {
-      return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+  function displayData(data) {
+      $.each(data, function(index, value) {
+          var datavalue = JSON.stringify(value.value);
+          var datacode = JSON.stringify(value.code);
+          $("#currency-selector-1").append("<option class='test' value='"+ index + "'><span id='currency-1'>" + value + "</span></option>");
+          $("#currency-selector-2").append("<option class='test' value='"+ index + "'><span id='currency-2'>" + value + "</span></option>");
+
+          $('#currency-selector-1 option[value="USD"]').attr("selected",true);
+          $('#currency-selector-2 option[value="NZD"]').attr("selected",true);
+      });
+  }
+
+  // Restricts input for the given textbox to the given inputFilter function.
+  function setInputFilter(textbox, inputFilter) {
+    ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+      textbox.addEventListener(event, function() {
+        if (inputFilter(this.value)) {
+          this.oldValue = this.value;
+          this.oldSelectionStart = this.selectionStart;
+          this.oldSelectionEnd = this.selectionEnd;
+        } else if (this.hasOwnProperty("oldValue")) {
+          this.value = this.oldValue;
+          this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+        } else {
+          this.value = "";
+        }
+      });
     });
+  }
+
+  setInputFilter(document.getElementById("input-amount-1"), function(value) {
+    return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+  });
+
+  setInputFilter(document.getElementById("input-amount-2"), function(value) {
+    return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+  });
 
 });
 

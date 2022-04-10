@@ -2,6 +2,8 @@ var articles = document.getElementById('articles');
 
 
 $( document ).ready(function() {
+    user_name = $('.user-name').text().slice(1,2);
+    $('.user-letter').text(user_name.toUpperCase());
     // Load Currencies
     fetch('https://api.frankfurter.app/currencies')
     .then((data) => data.json())
