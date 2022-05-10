@@ -8,9 +8,9 @@ python -m venv venv
 ```
 
 Click Yes
-```
+
 ![Set VS Workspace](https://i.imgur.com/ocNHGzl.png)
-```
+
 
 Activate Virtual Environment
 ```
