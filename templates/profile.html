@@ -6,7 +6,36 @@
     {% include ['navbar.html'] %}
     <div class="container">
       <div class="content">
-        <h1>{{ g.user['username'] }}'s profile</h1>
+        <h1>{{ user.username }}'s profile</h1>
+
+        <h3>Saved Conversions</h3>
+        <table class="tg">
+          <thead>
+            <tr>
+              <th class="tg-0lax">Username</th>
+              <th class="tg-0lax">From Currency</th>
+              <th class="tg-0lax">To Currency</th>
+              <th class="tg-0lax">From Value</th>
+              <th class="tg-0lax">To Value</th>
+              <th class="tg-0lax">Rate</th>
+              <th class="tg-0lax">Date Saved</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for each in conversions %}
+              <tr>
+                <td class="tg-0lax">{{ each.username }}</td>
+                <td class="tg-0lax">{{ each.fromCurrency }}</td>
+                <td class="tg-0lax">{{ each.toCurrency }}</td>
+                <td class="tg-0lax">{{ each.fromValue }}</td>
+                <td class="tg-0lax">{{ each.toValue }}</td>
+                <td class="tg-0lax">{{ each.rate }}</td>
+                <td class="tg-0lax">{{ each.date_saved }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+          </table>
+        
 
 
 

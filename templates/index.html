@@ -6,17 +6,20 @@
     {% include ['navbar.html'] %}
     <div class="container">
       <div class="content">
-        <form>
-            <input type="text" name="input-amount-1" class="currency-input" id="input-amount-1">
-            <select name="currency-input-1" id="currency-selector-1" onchange="updatevalue()"></select>
-            <br>
-            <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIconConverter" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
-            <br>
-            <input type="text" name="input-amount-2" class="currency-input" id="input-amount-2">
-            <select name="currency-input-2" id="currency-selector-2" onchange="updatevalue()"></select>
-            <p>Current Conversion Rate: <span id="conversion-rate"></span></p>
-            
-          </form>
+        <form action="/save_conversion" method="post">
+          <input type="text" name="input-amount-1" class="currency-input" id="input-amount-1">
+          <select name="currency-input-1" id="currency-selector-1" onchange="updatevalue()"></select>
+          <br>
+          <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIconConverter" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
+          <br>
+          <input type="text" name="input-amount-2" class="currency-input" id="input-amount-2">
+          <select name="currency-input-2" id="currency-selector-2" onchange="updatevalue()"></select>
+          <p>Current Conversion Rate: <span id="conversion-rate"></span></p>
+          
+          <input type="submit" value="Save Conversion">
+        </form>
+
+          
 
 
 
