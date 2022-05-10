@@ -1,9 +1,27 @@
 # CurrencyConverter
 
 Intructions:
-    1. pip install Flask
-    2. $env:FLASK_APP = "CurrencyConverter"
-    3. $env:FLASK_ENV = "development"
-    4. flask run
 
-    Default IP: 127.0.0.1:5000
+    Create Virtual Environment
+    ```
+    python -m venv venv
+    ```
+
+    Activate Virtual Environment
+    ```
+    venv\Scripts\activate
+    ```
+
+    Install Dependencies
+    ```
+    pip install Flask
+    pip install Flask-Login
+    pip install Flask-Migrate
+    pip install Flask-SQLAlchemy
+    ```
+
+    Set Development Environment for debugging and run
+    ```
+    $env:FLASK_ENV = "development"
+    flask run
+    ```
