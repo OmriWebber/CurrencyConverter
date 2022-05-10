@@ -1,5 +1,9 @@
 # CurrencyConverter
 
+###### Prerequisites
+Python 3.10
+
+
 ###### Intructions
 
 Create Virtual Environment
