@@ -7,6 +7,9 @@ Create Virtual Environment
 python -m venv venv
 ```
 
+Click Yes
+![Set VS Workspace](https://i.imgur.com/ocNHGzl.png)
+
 Activate Virtual Environment
 ```
 venv\Scripts\activate
@@ -24,8 +27,6 @@ Initialise Database
 ```
 flask db init
 ```
-
-![This is an image](https://i.imgur.com/ocNHGzl.png)
 
 Set Development Environment for debugging and run
 ```
