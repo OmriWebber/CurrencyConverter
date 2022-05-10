@@ -1,6 +1,6 @@
 # CurrencyConverter
 
-######Intructions
+###### Intructions
 
 Create Virtual Environment
 ```
@@ -18,6 +18,11 @@ pip install Flask
 pip install Flask-Login
 pip install Flask-Migrate
 pip install Flask-SQLAlchemy
+```
+
+Initialise Database
+```
+flask db init
 ```
 
 Set Development Environment for debugging and run
