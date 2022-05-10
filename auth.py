@@ -28,7 +28,9 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         
-    return render_template('auth/login.html',  msg=msg, name='Currency Converter - Register')
+        return redirect(url_for('auth.login'))
+        
+    return render_template('auth/register.html',  msg=msg, name='Currency Converter - Register')
 
 
 @auth.route('/login', methods=('GET', 'POST'))
