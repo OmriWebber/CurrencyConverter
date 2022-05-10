@@ -25,7 +25,7 @@ Initialise Database
 flask db init
 ```
 
-![This is an image](https://imgur.com/a/U9EJeqt)
+![This is an image](https://i.imgur.com/ocNHGzl.png)
 
 Set Development Environment for debugging and run
 ```
