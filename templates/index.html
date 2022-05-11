@@ -6,7 +6,7 @@
     {% include ['navbar.html'] %}
     <div class="container">
       <div class="content">
-        <form action="/save_conversion" method="post">
+        <form action="{{ url_for('save_conversion') }}" method="post">
           <input type="text" name="input-amount-1" class="currency-input" id="input-amount-1">
           <select name="currency-input-1" id="currency-selector-1" onchange="updatevalue()"></select>
           <br>
