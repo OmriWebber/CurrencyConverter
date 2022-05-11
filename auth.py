@@ -8,6 +8,7 @@ from app import db
 
 auth = Blueprint('auth', __name__, url_prefix='/auth')
 
+# Register Route
 @auth.route('/register', methods=('GET', 'POST'))
 def register():
     msg = ''
@@ -15,8 +16,10 @@ def register():
         username = request.form['username']
         password = request.form['password']
 
+        # query
         user = Users.query.filter_by(username=username).first()
         
+        # check if user exists
         if user:
             msg = 'Username already exists!'
             return render_template('auth/register.html',  msg=msg, name='Currency Converter - Register')

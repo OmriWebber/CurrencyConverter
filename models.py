@@ -2,8 +2,10 @@ from flask_login import UserMixin
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 
+# Create db Module
 db = SQLAlchemy()
 
+# Users Table Model
 class Users(UserMixin, db.Model):
     __tablename__ = 'Users'
     id = db.Column(db.Integer, primary_key=True)
@@ -13,10 +15,9 @@ class Users(UserMixin, db.Model):
     
     def __repr__(self):
         template = '{0.id} {0.username} {0.date_created}'
-        return template.format(self) 
+        return template.format(self)
 
-                
- 
+# Conversions Table Model
 class Conversions(UserMixin, db.Model):
     __tablename__ = 'Conversions'
     id = db.Column(db.Integer, primary_key=True)
