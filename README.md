@@ -21,6 +21,11 @@ Activate Virtual Environment
 venv\Scripts\activate
 ```
 
+If you get an error relating to 'Scripts not allowed on this system', run this command
+```
+Set-ExecutionPolicy -ExecutionPolicy AllSigned -Scope LocalMachine
+```
+
 Install Dependencies
 ```
 pip install Flask
