@@ -1,7 +1,7 @@
-from flask import render_template, Flask, request
-from flask_sqlalchemy import SQLAlchemy
+from flask import render_template, Flask, request, redirect, url_for
 from flask_login import LoginManager, login_required, current_user
 from flask_migrate import Migrate
+from sqlalchemy import delete
 from models import Users, Conversions, db
 
 
@@ -12,7 +12,6 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    
     migrate = Migrate(app, db)
 
     db.init_app(app)
@@ -51,7 +50,6 @@ def create_app():
     @login_required
     def profile():
         saved_conversions = Conversions.query.filter_by(user_id = current_user.id).all()
-        print(saved_conversions)
         return render_template('profile.html', name='Currency Converter', user=current_user, conversions=saved_conversions)
 
 
@@ -59,13 +57,21 @@ def create_app():
     @login_required
     def save_conversion():
         if request.method == "POST":
-            tfromValue = request.form.get("input-amount-1")
-            tfromCurrency = request.form.get("currency-input-1")
-            ttoValue = request.form.get("input-amount-2")
-            ttoCurrency = request.form.get("currency-input-2")
-            new_conversion = Conversions(user_id=current_user.id, username=current_user.username, fromCurrency=tfromCurrency, toCurrency=ttoCurrency, fromValue=tfromValue, toValue=ttoValue, rate=float(ttoValue) / float(tfromValue))
+            fromValue = request.form.get("input-amount-1")
+            fromCurrency = request.form.get("currency-input-1")
+            toValue = request.form.get("input-amount-2")
+            toCurrency = request.form.get("currency-input-2")
+            new_conversion = Conversions(user_id=current_user.id, username=current_user.username, fromCurrency=fromCurrency, toCurrency=toCurrency, fromValue=fromValue, toValue=toValue, rate=float(toValue) / float(fromValue))
             db.session.add(new_conversion)
             db.session.commit()
         return render_template('index.html', name='Currency Converter', msg="Conversion Saved", user=current_user)
+    
+    @app.route("/delete_conversion/<id>")
+    @login_required
+    def delete_conversion(id):
+        stmt = Conversions.query.filter_by(id = id).one()
+        db.session.delete(stmt)
+        db.session.commit()
+        return redirect(url_for('profile'))
     
     return app
