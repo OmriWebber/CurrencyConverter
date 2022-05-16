@@ -1,3 +1,4 @@
 Flask
-werkzeug
-flask_mysqldb
+Flask-Login
+Flask-Migrate
+Flask-SQLAlchemy
