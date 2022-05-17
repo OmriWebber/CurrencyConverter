@@ -91,6 +91,7 @@ function convert(currency1, currency2, value) {
   fetch(`https://${host}/latest?amount=1&from=${currency1}&to=${currency2}`)
   .then((val) => val.json())
   .then((val) => {
+    document.getElementById("conversion-rate-container").style.opacity = "1";
     document.getElementById("conversion-rate").textContent = Object.values(val.rates)[0];
   });
 }
@@ -103,6 +104,3 @@ function switchCurrency(){
   $('#currency-selector-2').val(currency1).change();
 
 }
-
-
-
