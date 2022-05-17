@@ -59,11 +59,16 @@ function displayGraph(graphLabels, graphData, currency){
             responsive: true,
             scales: {
                 y: {
-                    beginAtZero: false
+                    ticks: {
+                        color: "rgba(255, 255, 255, 0.7)",
+                        beginAtZero: false
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: "rgba(255, 255, 255, 0.7)",
+                    }
                 }
-            },
-            legend: {
-                onClick: (e) => e.stopPropagation()
             }
         }
     });
