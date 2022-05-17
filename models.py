@@ -11,10 +11,11 @@ class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(256), nullable=False)
+    is_Admin = db.Column(db.Boolean, nullable=False, default=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     
     def __repr__(self):
-        template = '{0.id} {0.username} {0.date_created}'
+        template = '{0.id} {0.username} {0.is_Admin} {0.date_created}'
         return template.format(self)
 
 # Conversions Table Model
