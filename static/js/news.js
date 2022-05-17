@@ -35,21 +35,20 @@ function displayNews(currency){
     fetch(url, options)
         .then((data) => data.json())
         .then((data) => {
-            console.log(data);
             for(let i = 0; i < data.articles.length; i++) {
+                console.log(data);
                 var date = new Date(data.articles[i].published_date);
-                console.log(date.toString);
                 articles.innerHTML +=   "<div class='row article'>" + 
                                             "<div class='col-4'>" +
                                                 "<img class='article-img' src='" + data.articles[i].media + "'>" +
                                             "</div>" +
                                             "<div class='col-8'>" + 
                                                 "<p class='title'>" + data.articles[i].title + "</p>" + 
-                                                "<p class='date'>" + (date.toString()).slice(0,21)  + "</p>" +
+                                                "<p class='date'><span class='article-author'>" + data.articles[i].author + "</span>  |  <span class='article-date'>" + (date.toString()).slice(0,21) + "</span></p>" +
                                                 "<p class='desc'>" + data.articles[i].summary + "</p>" + 
+                                                "<a class='button' target='_blank' href='" + data.articles[i].link + "'>Read More</a>" + 
                                             "</div>" +    
-                                        "</div>" +
-                                        "<hr>";
+                                        "</div>";
             }
     });    
 
