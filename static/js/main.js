@@ -92,8 +92,9 @@ function convert(currency1, currency2, value) {
   fetch(`https://${host}/latest?amount=1&from=${currency1}&to=${currency2}`)
   .then((val) => val.json())
   .then((val) => {
+    console.log(val);
     document.getElementById("conversion-rate-container").style.opacity = "1";
-    document.getElementById("conversion-rate").textContent = Object.values(val.rates)[0];
+    document.getElementById("conversion-rate").textContent = "1 "+ currency2 + " = " + Object.values(val.rates)[0] + " " + val.base;
   });
 }
 
