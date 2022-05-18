@@ -6,6 +6,10 @@ body {
     color: white;
 }
 
+body .container {
+    display: none;
+}
+
 .navbar {
     background-color: rgba(0, 0, 0, 0.3);
     padding-bottom: 10px;
@@ -143,11 +147,13 @@ select option {
 .switchIcon {
     height: 20px;
     margin: 30px 0px 0 36px;
+    filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(131deg) brightness(102%) contrast(101%);
 }
 
 .switchIconConverter {
     height: 20px;
     margin: 20px 10px 20px 0px;
+    filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(131deg) brightness(102%) contrast(101%);
 }
 
 .spacer {
@@ -234,4 +240,49 @@ select option {
 .tg .tg-0lax {
     text-align:left;
     vertical-align:top
+}
+
+.loading-container {
+	width: 100%;
+	height: 50%;
+	text-align: center;
+    position: absolute;
+}
+
+.loading-spinner {
+    margin: auto;
+    margin-top: 200px;
+	width: 49px;
+	height: 49px;
+	border: 3px solid rgb(255,255,255);
+	border-radius: 50%;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	animation: cssload-spin 575ms infinite linear;
+		-o-animation: cssload-spin 575ms infinite linear;
+		-ms-animation: cssload-spin 575ms infinite linear;
+		-webkit-animation: cssload-spin 575ms infinite linear;
+		-moz-animation: cssload-spin 575ms infinite linear;
+}
+
+
+
+@keyframes cssload-spin {
+	100%{ transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-o-keyframes cssload-spin {
+	100%{ -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-ms-keyframes cssload-spin {
+	100%{ -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-webkit-keyframes cssload-spin {
+	100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-moz-keyframes cssload-spin {
+	100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
 }

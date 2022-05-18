@@ -72,6 +72,7 @@ function displayGraph(graphLabels, graphData, currency){
             }
         }
     });
+    loaded();
 }
 
 $('#graph-base-currency-selector').on('change', function() {  

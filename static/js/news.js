@@ -50,8 +50,8 @@ function displayNews(currency){
                                             "</div>" +    
                                         "</div>";
             }
+            loaded();
     });    
-
 }
 
 $('#news-currency-selector').on('change', function() {  

@@ -19,6 +19,7 @@ $( document ).ready(function() {
           $('#currency-selector-1 option[value="USD"]').attr("selected",true);
           $('#currency-selector-2 option[value="NZD"]').attr("selected",true);
       });
+      loaded();
   }
 
   // Restricts input for the given textbox to the given inputFilter function.
