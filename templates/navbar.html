@@ -10,6 +10,8 @@
         <a class="nav-link" href="{{ url_for('history') }}">History</a>
         <a class="nav-link" href="{{ url_for('recent_news') }}">Recent News</a>
         <span class="spacer"><span class="line"></span></span>
+        <a class="nav-link" href="{{ url_for('crypto.index') }}">Crypto</a>
+        <span class="spacer"><span class="line"></span></span>
         {% if current_user.is_authenticated %}
           <a class="nav-link user-name" href="{{ url_for('profile') }}"><span class="user-container"><span class="user-bg"><p class="user-letter"></p></span></span> {{ user.username }}</a>
           <a class="nav-link logout" href="{{ url_for('auth.logout') }}">Logout</a>

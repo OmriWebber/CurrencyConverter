@@ -33,6 +33,8 @@ def load_user(user_id):
 from auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)
 
+from crypto import crypto as crypto_blueprint
+app.register_blueprint(crypto_blueprint)
 
 
 # Routes
@@ -115,6 +117,7 @@ def remove_admin(id):
     stmt.is_Admin = False
     db.session.commit()
     return redirect(url_for('profile'))
+
 
 if __name__ == "__main__":
     app.run()

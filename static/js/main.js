@@ -15,7 +15,6 @@ $( document ).ready(function() {
           var datacode = JSON.stringify(value.code);
           $("#currency-selector-1").append("<option class='test' value='"+ index + "'><span id='currency-1'>" + value + "</span></option>");
           $("#currency-selector-2").append("<option class='test' value='"+ index + "'><span id='currency-2'>" + value + "</span></option>");
-
           $('#currency-selector-1 option[value="USD"]').attr("selected",true);
           $('#currency-selector-2 option[value="NZD"]').attr("selected",true);
       });
