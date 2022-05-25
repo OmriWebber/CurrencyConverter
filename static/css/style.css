@@ -111,6 +111,14 @@ input:focus {
     margin-bottom: 0px;
 }
 
+#crypto-list .green {
+    color: rgb(104, 255, 104);
+}
+
+#crypto-list .red {
+    color: rgb(255, 107, 107);
+}
+
 .table-header {
     background-color: rgba(255,255,255,0.1) !important;
     display: table-row !important;

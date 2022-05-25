@@ -13,6 +13,16 @@ $( document ).ready(function() {
         $.each(data.Data, function(index, value) {
             console.log(value);
             if(value.DISPLAY) {
+                var hrSign = Math.sign(value.DISPLAY.USD.CHANGEPCTHOUR);
+                var hr24Sign = Math.sign(value.DISPLAY.USD.CHANGEPCT24HOUR);
+                var color;
+
+                if (hrSign < 0) {
+                    color = 'red';
+                } else {
+                    color = 'green';
+                }
+
                 $('#crypto-list').append('<tr>'+
                                             '<td>' + (index + 1) + '</td>' +
                                             '<td class="align-left">'+
@@ -26,10 +36,10 @@ $( document ).ready(function() {
                                                 '<p class="crypto-price">' + value.DISPLAY.USD.PRICE + '</p>'+
                                             '</td>'+
                                             '<td>'+
-                                                '<p class="crypto-1h">' + value.DISPLAY.USD.CHANGEPCTHOUR + '%</p>'+
+                                                '<p class="crypto-1h ' + ConvertIntToColor(hrSign) + '">' + value.DISPLAY.USD.CHANGEPCTHOUR + '%</p>'+
                                             '</td>'+
                                             '<td>'+
-                                                '<p class="crypto-24h">' + value.DISPLAY.USD.CHANGEPCT24HOUR + '%</p>'+
+                                                '<p class="crypto-24h ' + ConvertIntToColor(hr24Sign) + '">' + value.DISPLAY.USD.CHANGEPCT24HOUR + '%</p>'+
                                             '</td>'+
                                             '<td>'+
                                                 '<p class="crypto-24h-volume">' + value.DISPLAY.USD.TOTALVOLUME24HTO + '</p>'+
@@ -46,6 +56,14 @@ $( document ).ready(function() {
         }); 
         loaded();
     } 
+
+    function ConvertIntToColor(i) {
+        if(i > 0) {
+            return 'green';
+        } else {
+            return 'red';
+        }
+    }
 });
 
 function sortObject(o) {

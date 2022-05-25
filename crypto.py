@@ -22,5 +22,4 @@ def history():
 
 @crypto.route('/recent-news')
 def recent_news():
-    
     return render_template('crypto/recent_news.html', name='Crypto Converter - Recent News', user=current_user)
