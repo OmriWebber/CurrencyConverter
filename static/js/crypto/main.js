@@ -49,15 +49,15 @@ $( document ).ready(function() {
         }); 
         loaded();
     } 
-
-    function ConvertIntToColor(i) {
-        if(i > 0) {
-            return 'green';
-        } else {
-            return 'red';
-        }
-    }
 });
+
+function ConvertIntToColor(i) {
+    if(i > 0) {
+        return 'green';
+    } else {
+        return 'red';
+    }
+}
 
 function sortObject(o) {
     var sorted = {},
