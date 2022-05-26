@@ -2,7 +2,7 @@ $( document ).ready(function() {
     user_name = $('.user-name').text().slice(1,2);
     $('.user-letter').text(user_name.toUpperCase());
   
-    fetch('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=100&tsym=USD&api_key=19c50ae96520309dd4cae03a51d0e8a776e102bdf45884e1f569d9c62cb649cd')
+    fetch("https://api.coingecko.com/api/v3/coins?per_page=100&page=1")
       .then((data) => data.json())
       .then((data) => {
         displayData(data);
@@ -10,45 +10,38 @@ $( document ).ready(function() {
       });
 
     function displayData(data) {
-        $.each(data.Data, function(index, value) {
+        $.each(data, function(index, value) {
             console.log(value);
-            if(value.DISPLAY) {
-                var hrSign = Math.sign(value.DISPLAY.USD.CHANGEPCTHOUR);
-                var hr24Sign = Math.sign(value.DISPLAY.USD.CHANGEPCT24HOUR);
-                var color;
-
-                if (hrSign < 0) {
-                    color = 'red';
-                } else {
-                    color = 'green';
-                }
+            if(value) {
+                var d7Sign = Math.sign(value.market_data.price_change_percentage_7d);
+                var hr24Sign = Math.sign(value.market_data.price_change_percentage_24h);
 
                 $('#crypto-list').append('<tr>'+
                                             '<td>' + (index + 1) + '</td>' +
                                             '<td class="align-left">'+
-                                                '<img class="crypto-img" src="https://www.cryptocompare.com' + value.DISPLAY.USD.IMAGEURL + '">' +
-                                                '<span class="crypto-fullname"> ' + value.CoinInfo.FullName + '</span>'+
+                                                '<img class="crypto-img" src="' + value.image.thumb + '">' +
+                                                '<span class="crypto-fullname"> ' + value.name + '</span>'+
                                             '</td>'+
                                             '<td>'+
-                                                '<p class="crypto-name">' + value.CoinInfo.Name + '</p>'+
+                                                '<p class="crypto-name">' + value.symbol.toUpperCase() + '</p>'+
                                             '</td>'+
                                             '<td>'+
-                                                '<p class="crypto-price">' + value.DISPLAY.USD.PRICE + '</p>'+
+                                                '<p class="crypto-price">$' + commaSeparateNumber(value.market_data.current_price.usd) + '</p>'+
                                             '</td>'+
                                             '<td>'+
-                                                '<p class="crypto-1h ' + ConvertIntToColor(hrSign) + '">' + value.DISPLAY.USD.CHANGEPCTHOUR + '%</p>'+
+                                                '<p class="crypto-24h ' + ConvertIntToColor(hr24Sign) + '">' + value.market_data.price_change_percentage_24h + '%</p>'+
                                             '</td>'+
                                             '<td>'+
-                                                '<p class="crypto-24h ' + ConvertIntToColor(hr24Sign) + '">' + value.DISPLAY.USD.CHANGEPCT24HOUR + '%</p>'+
+                                                '<p class="crypto-7d ' + ConvertIntToColor(d7Sign) + '">' + value.market_data.price_change_percentage_7d + '%</p>'+
                                             '</td>'+
                                             '<td>'+
-                                                '<p class="crypto-24h-volume">' + value.DISPLAY.USD.TOTALVOLUME24HTO + '</p>'+
+                                                '<p class="crypto-24h-volume">$' + commaSeparateNumber(value.market_data.total_volume.usd) + '</p>'+
                                             '</td>'+
                                             '<td>'+
-                                                '<p class="crypto-marketcap">' + value.DISPLAY.USD.MKTCAP + '</p>'+
+                                                '<p class="crypto-marketcap">$' + commaSeparateNumber(value.market_data.market_cap.usd) + '</p>'+
                                             '</td>'+
                                             '<td>'+
-                                                '<a class="button" href="coin=' + value.CoinInfo.Name + '">More Details</a>'+
+                                                '<a class="button" href="coin=' + value.id + '">More Details</a>'+
                                             '</td>'+
                                         '</tr>');
             }
@@ -103,3 +96,28 @@ function searchFunction() {
       }
     }
 }
+
+function commaSeparateNumber(val) {
+    // remove sign if negative
+    var sign = 1;
+    if (val < 0) {
+      sign = -1;
+      val = -val;
+    }
+  
+    // trim the number decimal point if it exists
+    let num = val.toString().includes('.') ? val.toString().split('.')[0] : val.toString();
+  
+    while (/(\d+)(\d{3})/.test(num.toString())) {
+      // insert comma to 4th last position to the match number
+      num = num.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+    }
+  
+    // add number after decimal point
+    if (val.toString().includes('.')) {
+      num = num + '.' + val.toString().split('.')[1];
+    }
+  
+    // return result with - sign if negative
+    return sign < 0 ? '-' + num : num;
+  }

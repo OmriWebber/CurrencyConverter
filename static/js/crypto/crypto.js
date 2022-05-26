@@ -3,20 +3,16 @@ $( document ).ready(function() {
     $('.user-letter').text(user_name.toUpperCase());
 
     var key = '780b5f3168c0a615facbc2e883c16b7599bfa908';
-    fetch("https://api.nomics.com/v1/currencies/ticker?key=" + key + "&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&platform-currency=ETH&per-page=100&page=1")
+    console.log(coin);
+    fetch("https://api.coingecko.com/api/v3/coins/" + coin)
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => displayData(result))
         .catch(error => console.log('error', error));
 
     loaded();
 
     function displayData(data) {
-        $.each(data.Data, function(index, value) {
-            console.log(value);
-            if(value.DISPLAY) {
-            }
-            
-        }); 
+        console.log(data);
         
     } 
 

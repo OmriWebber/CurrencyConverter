@@ -3,6 +3,7 @@
   {% include ['head.html'] %}
   <script>
       var coin = '{{ coin }}';
+      coin = coin.toLowerCase();
   </script>
   <body>
     {% include ['crypto/navbar.html'] %}
