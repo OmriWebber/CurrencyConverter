@@ -60,8 +60,7 @@ function ConvertIntToColor(i) {
 }
 
 function sortObject(o) {
-    var sorted = {},
-    key, a = [];
+    var sorted = {}, key, a = [];
 
     for (key in o) {
         if (o.hasOwnProperty(key)) {

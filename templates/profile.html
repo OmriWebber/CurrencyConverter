@@ -56,13 +56,18 @@
             </thead>
             <tbody>
               {% for each in user_list %}
-                <tr>
-                  <td class="tg-0lax">{{ each.id }}</td>
-                  <td class="tg-0lax">{{ each.username }}</td>
-                  <td class="tg-0lax">{{ each.is_Admin }}</td>
-                  <td class="tg-0lax"><a class="button make_admin" href="{{ url_for('make_admin', id=each.id) }}">Make Admin</a>  <a class="button remove_admin" href="{{ url_for('remove_admin', id=each.id) }}">Remove Admin</a></td>
-                  <td class="tg-0lax"><a class="button delete-user" href="{{ url_for('delete_user', id=each.id) }}">Delete User</a></td>
-                </tr>
+                {% if each.username != 'admin'%}
+                  <tr>
+                    <td class="tg-0lax">{{ each.id }}</td>
+                    <td class="tg-0lax">{{ each.username }}</td>
+                    <td class="tg-0lax">{{ each.is_Admin }}</td>
+                    <td class="tg-0lax">
+                      <a class="button make_admin" href="{{ url_for('make_admin', id=each.id) }}">Make Admin</a>  
+                      <a class="button remove_admin" href="{{ url_for('remove_admin', id=each.id) }}">Remove Admin</a>
+                    </td>
+                    <td class="tg-0lax"><a class="button delete-user" href="{{ url_for('delete_user', id=each.id) }}">Delete User</a></td>
+                  </tr>
+                {% endif %}
               {% endfor %}
             </tbody>
           </table>

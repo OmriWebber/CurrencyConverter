@@ -320,7 +320,10 @@ select option {
 
 .tg .tg-0lax {
     text-align:left;
-    vertical-align:top
+}
+
+.tg .tg-0lax .button {
+    margin-top: 0px;
 }
 
 .loading-container {

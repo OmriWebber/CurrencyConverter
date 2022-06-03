@@ -1,5 +1,15 @@
 # CurrencyConverter
 
+###### Notes
+Admin Account:
+username: admin
+password: admin
+Note: Admin account does not appear in User List so it is uneditable.
+
+Test User Account:
+username: user
+password: user
+
 ###### Prerequisites
 Python 3.10
 
