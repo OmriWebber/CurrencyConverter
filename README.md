@@ -1,7 +1,7 @@
 # CurrencyConverter
 
 ###### Notes
-Admin Account:
+Admin Account:\n
 username: admin
 password: admin
 Note: Admin account does not appear in User List so it is uneditable.
