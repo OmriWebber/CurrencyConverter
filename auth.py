@@ -13,12 +13,14 @@ auth = Blueprint('auth', __name__, url_prefix='/auth')
 def register():
     msg = ''
     if request.method == 'POST':
+
         username = request.form['username']
         password = request.form['password']
 
         # query
         user = Users.query.filter_by(username=username).first()
-        
+
+
         # check if user exists
         if user:
             msg = 'Username already exists!'
@@ -32,6 +34,7 @@ def register():
         db.session.commit()
         
         return redirect(url_for('auth.login'))
+        flash('Thank you for registering your account please login!')
         
     return render_template('auth/register.html',  msg=msg, name='Currency Converter - Register')
 
