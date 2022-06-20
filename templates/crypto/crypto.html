@@ -11,10 +11,58 @@
       <div class="loading-spinner"></div>
     </div>
     <div class="container ">
-      <div class="content">
-          <h2>{{ coin }}</h2>
+      <div class="back-button">
+        <a class="button" href="{{ url_for('crypto.index') }}">Go Back</a>
+      </div>
+      <div class="crypto-profile content">
+        <div class="row flex-row">
+          <div class="col-lg-4">
+            <div class="about-avatar">
+                <h3 class="crypto-title"></h3>
+                <img class="crypto-icon" src="" title="" alt="">
+            </div>
+          </div>
+          <div class="col-lg-8">
+              <div class="about-text">
+                  
+                  <h6 class="crypto-desc"></h6>
+                  <div class="row about-list">
+                      <div class="col-6">
+                          <div class="media">
+                              <label>Market Cap</label>
+                              <p class="crypto-mktcap">Not Found</p>
+                          </div>
+                          <div class="media">
+                              <label>24hr Trading Volume</label>
+                              <p class="crypto-24hrvol">Not Found</p>
+                          </div>
+                          <div class="media">
+                              <label>Fully Diluted Valuation</label>
+                              <p class="crypto-dilutedvalue">Not Found</p>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="media">
+                          <label>Circulating Supply</label>
+                          <p class="crypto-circsupply">Not Found</p>
+                        </div>
+                        <div class="media">
+                          <label>Total Supply</label>
+                          <p class="crypto-totalsupply">Not Found</p>
+                        </div>
+                        <div class="media">
+                          <label>Max Supply</label>
+                          <p  class="crypto-maxsupply">Not Found</p>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
       </div>
     </div>
+
+    
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

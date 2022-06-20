@@ -11,7 +11,6 @@ $( document ).ready(function() {
 
     function displayData(data) {
         $.each(data, function(index, value) {
-            console.log(value);
             if(value) {
                 var d7Sign = Math.sign(value.market_data.price_change_percentage_7d);
                 var hr24Sign = Math.sign(value.market_data.price_change_percentage_24h);
@@ -51,6 +50,7 @@ $( document ).ready(function() {
     } 
 });
 
+// If number is negative return red else return green
 function ConvertIntToColor(i) {
     if(i > 0) {
         return 'green';
@@ -59,23 +59,7 @@ function ConvertIntToColor(i) {
     }
 }
 
-function sortObject(o) {
-    var sorted = {}, key, a = [];
-
-    for (key in o) {
-        if (o.hasOwnProperty(key)) {
-                a.push(key);
-        }
-    }
-
-    a.sort();
-
-    for (key = 0; key < a.length; key++) {
-        sorted[a[key]] = o[a[key]];
-    }
-    return sorted;
-}
-
+// Crypto Search Sort Function
 function searchFunction() {
     // Declare variables
     var input, filter, table, tr, i;
@@ -96,6 +80,7 @@ function searchFunction() {
     }
 }
 
+// Format Numbers with Commas
 function commaSeparateNumber(val) {
     // remove sign if negative
     var sign = 1;

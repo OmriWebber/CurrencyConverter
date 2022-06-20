@@ -22,6 +22,7 @@ $( document ).ready(function() {
     });
 });
 
+// Gets Graph Data from baseCurrency
 function getGraphData(baseCurrency, convertCurrency){
     fetch(`https://api.frankfurter.app/2020-01-01..?from=${baseCurrency}`)
         .then((data) => data.json())
@@ -36,6 +37,7 @@ function getGraphData(baseCurrency, convertCurrency){
     });
 }
 
+// Display graph from data recieved from getGraphData() and other functions
 function displayGraph(graphLabels, graphData, currency){
     const ctx = document.getElementById('myChart').getContext('2d');
     myChart = new Chart(ctx, {
@@ -75,6 +77,7 @@ function displayGraph(graphLabels, graphData, currency){
     loaded();
 }
 
+// Update conversion if curency changes
 $('#graph-base-currency-selector').on('change', function() {  
     var newGraphData = [];
     var newGraphLabels = [];
@@ -93,6 +96,7 @@ $('#graph-base-currency-selector').on('change', function() {
     });
 });
 
+// Update conversion if curency changes
 $('#graph-convert-currency-selector').on('change', function() {  
     var newGraphData = [];
     var newGraphLabels = [];
@@ -111,6 +115,7 @@ $('#graph-convert-currency-selector').on('change', function() {
     });
 });
 
+// gets new date depending on button clicked
 function setDate(days){
     var date = new Date();
     date.setDate(date.getDate() - days);
@@ -129,6 +134,7 @@ function setDate(days){
     setGraphDate(formattedDate);
 }
 
+// Redraws the graph based on new date
 function setGraphDate(date){
     var newGraphData = [];
     var newGraphLabels = [];
@@ -148,6 +154,7 @@ function setGraphDate(date){
 
 }
 
+// Switch Button Controls
 function switchCurrency(){
     var currency1 = $('#graph-base-currency-selector option:selected').attr("value");
     var currency2 = $('#graph-convert-currency-selector option:selected').attr("value");
