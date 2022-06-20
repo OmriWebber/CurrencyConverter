@@ -38,10 +38,7 @@ Set-ExecutionPolicy -ExecutionPolicy AllSigned -Scope LocalMachine
 
 Install Dependencies
 ```
-pip install Flask
-pip install Flask-Login
-pip install Flask-Migrate
-pip install Flask-SQLAlchemy
+pip install -r requirements.txt
 ```
 
 Initialise Database
