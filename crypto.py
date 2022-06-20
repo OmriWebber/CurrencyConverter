@@ -17,8 +17,8 @@ def coin_info(coin):
 
 @crypto.route('/history')
 def history():
-    
     return render_template('crypto/graph.html', name='Crypto Converter - History', user=current_user)
+
 
 @crypto.route('/recent-news')
 def recent_news():

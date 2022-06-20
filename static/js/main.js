@@ -105,3 +105,4 @@ function switchCurrency(){
   $('#currency-selector-2').val(currency1).change();
 
 }
+$(".alert").alert('close')

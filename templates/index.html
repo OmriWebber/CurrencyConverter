@@ -8,9 +8,7 @@
     </div>
     <div class="container ">
       <div class="content">
-        {% if msg %}
-        <p class="alert-text">{{ msg }}</p>
-        {% endif %}
+
         <div class = conversion_table>
         <form action="{{ url_for('save_conversion') }}" method="post">
           <input type="text" placeholder="Enter Value"  name="input-amount-1" class="currency-input" id="input-amount-1">
@@ -22,6 +20,13 @@
           <select name="currency-input-2" id="currency-selector-2" onchange="updatevalue()"></select>
           <p id="conversion-rate-container"><span id="conversion-rate"></span></p>
           <input class="button" type="submit" value="Save Conversion">
+          <a href="{{ url_for('profile') }}" class="button">View Saved Conversions</a>
+          {% if msg %}
+          <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" style="text-decoration: none;">&times;</a>
+            {{ msg }}
+          </div>
+          {% endif %}
         </form>
       </div>
       </div>

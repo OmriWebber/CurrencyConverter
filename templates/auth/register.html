@@ -6,15 +6,21 @@
     {% include ['navbar.html'] %}
     <div class="container">
       <div class="content">
+        <div class = "reg_login_form">
         <p>{{ msg }}</p>
         <form method="post">
-            <label for="username">Username</label>
-            <input name="username" id="username" required>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
-            <input class="button" type="submit" value="Register">
+            <h4>Register your Account</h4>
+            <label id = "username_input" for="username">Username</label>
+            <input id = "username_input" name="username" id="username" required><br>
+            <label id = "password_input" for="password">Password</label>
+            <input id = "password_input" type="password" name="password" id="password" required><br>
+            <input class="button" id = registrationbtn type="submit" value="Register"><br>
           </form>
-      </div>
+
+          <br><h5>Already have an account?</h5><br>
+          <a id="bluebtn" href="/auth/login" style="text-decoration: none;color: white;text-decoration: none;border: none;padding: 5px 20px;border-radius: 5px;background-color: rgb(33 109 255 / 69%);transition: 0.2s ease-in-out all;"> Login Instead</a>
+        </div>
+     </div>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
