@@ -9,12 +9,16 @@
         <div class = "register_form">
         <p>{{ msg }}</p>
         <form method="post">
+            <h4>Register your Account</h4>
             <label id = "username_input" for="username">Username</label>
             <input id = "username_input" name="username" id="username" required><br>
             <label id = "password_input" for="password">Password</label>
             <input id = "password_input" type="password" name="password" id="password" required><br>
-            <input class="button" id = registrationbtn type="submit" value="Register">
+            <input class="button" id = registrationbtn type="submit" value="Register"><br>
           </form>
+
+          <br><h5>Already have an account?</h5><br>
+          <a id="bluebtn" href="/auth/login" style="text-decoration: none;color: white;text-decoration: none;border: none;padding: 5px 20px;border-radius: 5px;background-color: rgb(33 109 255 / 69%);transition: 0.2s ease-in-out all;"> Login Instead</a>
         </div>
      </div>
     </div>
