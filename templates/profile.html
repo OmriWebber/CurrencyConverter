@@ -7,7 +7,7 @@
       <div class="loading-spinner"></div>
     </div>
     <div class="container">
-      <div class="content">
+      <div class="content_profile">
         <h1>{{ user.username }}'s profile</h1>
         <br><br><br>
         <h3>Saved Conversions</h3>
@@ -35,7 +35,7 @@
                   <td class="tg-0lax">{{ each.toValue }}</td>
                   <td class="tg-0lax rate">{{ each.rate }}</td>
                   <td class="tg-0lax date">{{ each.date_saved }}</td>
-                  <td class="tg-0lax"><a class="button delete-conersion" href="{{ url_for('delete_conversion', id=each.id) }}">Delete</a></td>
+                  <td class="tg-0lax"><a class="button delete-conersion" id="delete_btn" href="{{ url_for('delete_conversion', id=each.id) }}">Delete</a></td>
                 </tr>
               {% endfor %}
             </tbody>
@@ -56,18 +56,14 @@
             </thead>
             <tbody>
               {% for each in user_list %}
-                {% if each.username != 'admin'%}
-                  <tr>
-                    <td class="tg-0lax">{{ each.id }}</td>
-                    <td class="tg-0lax">{{ each.username }}</td>
-                    <td class="tg-0lax">{{ each.is_Admin }}</td>
-                    <td class="tg-0lax">
-                      <a class="button make_admin" href="{{ url_for('make_admin', id=each.id) }}">Make Admin</a>  
-                      <a class="button remove_admin" href="{{ url_for('remove_admin', id=each.id) }}">Remove Admin</a>
-                    </td>
-                    <td class="tg-0lax"><a class="button delete-user" href="{{ url_for('delete_user', id=each.id) }}">Delete User</a></td>
-                  </tr>
-                {% endif %}
+                <tr>
+                  <td class="tg-0lax">{{ each.id }}</td>
+                  <td class="tg-0lax">{{ each.username }}</td>
+                  <td class="tg-0lax">{{ each.is_Admin }}</td>
+                  <td class="tg-0lax"><a class="button make_admin" href="{{ url_for('make_admin', id=each.id) }}">Make Admin</a>  
+                  <a class="button remove_admin" id="delete_btn" href="{{ url_for('remove_admin', id=each.id) }}">Remove Admin</a></td>
+                  <td class="tg-0lax"><a class="button delete-user" id="delete_btn" href="{{ url_for('delete_user', id=each.id) }}">Delete User</a></td>
+                </tr>
               {% endfor %}
             </tbody>
           </table>

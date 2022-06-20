@@ -11,8 +11,9 @@
         {% if msg %}
         <p class="alert-text">{{ msg }}</p>
         {% endif %}
+        <div class = conversion_table>
         <form action="{{ url_for('save_conversion') }}" method="post">
-          <input type="text" placeholder="Enter Value" name="input-amount-1" class="currency-input" id="input-amount-1">
+          <input type="text" placeholder="Enter Value"  name="input-amount-1" class="currency-input" id="input-amount-1">
           <select name="currency-input-1" id="currency-selector-1" onchange="updatevalue()"></select>
           <br>
           <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIconConverter" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
@@ -23,6 +24,7 @@
           <input class="button" type="submit" value="Save Conversion">
           <a href="{{ url_for('profile') }}" class="button">View Saved Conversions</a>
         </form>
+      </div>
       </div>
     </div>
     
