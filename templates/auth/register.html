@@ -6,15 +6,17 @@
     {% include ['navbar.html'] %}
     <div class="container">
       <div class="content">
+        <div class = "register_form">
         <p>{{ msg }}</p>
         <form method="post">
-            <label for="username">Username</label>
-            <input name="username" id="username" required>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
-            <input class="button" type="submit" value="Register">
+            <label id = "username_input" for="username">Username</label>
+            <input id = "username_input" name="username" id="username" required><br>
+            <label id = "password_input" for="password">Password</label>
+            <input id = "password_input" type="password" name="password" id="password" required><br>
+            <input class="button" id = registrationbtn type="submit" value="Register">
           </form>
-      </div>
+        </div>
+     </div>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

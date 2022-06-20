@@ -40,6 +40,18 @@ body .container {
     transition: 0.2s ease-in-out all;
 }
 
+#registrationbtn{
+   margin-top: 20px;
+}
+
+#username_input{
+    margin-top: 10px;
+}
+
+#password_input{
+    margin-top:20px;
+}
+
 .button:hover {
     color: white;
     text-decoration: none;
@@ -461,7 +473,12 @@ only screen and (min-device-pixel-ratio : 1.5) {
         padding: 20px;
 
 }
+.register_form {
+    background-color: #ffffff5e;
+    border-radius: 11px;
+    padding: 20px;
 
+}
 ::placeholder{
     color: white;
 }
