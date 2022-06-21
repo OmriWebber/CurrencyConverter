@@ -7,7 +7,7 @@
     <div class="container">
       <div class="content">
         <div class = "reg_login_form">
-        <p class="error-msg">{{ msg }}</p>
+
         <form method="post">
           <h4>Log-in or Sign-up</h4><br>
             <label for="username">Username</label>
@@ -17,6 +17,11 @@
             <input class="button" type="submit" value="Log In">
             
         </form>
+        {% if msg %}
+        <div class="alert alert-danger alert-dismissible">
+          <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" style="text-decoration: none;color: red;font-size: initial;">{{msg}} &times;</a>
+        </div>
+        {% endif %}
         <br><h5>Need an Account?</h5><br>
         <a id="bluebtn" href="/auth/register" style="text-decoration: none;color: white;text-decoration: none;border: none;padding: 5px 20px;border-radius: 5px;background-color: rgb(33 109 255 / 69%);transition: 0.2s ease-in-out all;">Sign up for a new Account</a>
 
