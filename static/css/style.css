@@ -587,3 +587,76 @@ only screen and (min-device-pixel-ratio : 1.5) {
 ::placeholder{
     color: white;
 }
+
+/*-Trying out graph for main page-*/
+.content_dashboard
+{
+    display: -webkit-inline-box;
+}
+
+.graph_container
+{
+    display: table-footer-group;
+ 
+}
+
+.graph_container
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.CurrencyGraphsearchBoxes
+{
+    padding: 25pt;
+    margin-top: -75px;
+    border: 3px solid rgba(0, 128, 128, 0.126);
+    border-radius: 20px;
+    background-color: rgba(0, 128, 128, 0.126);
+}
+
+.Shrink_graph
+{
+  border: 1px solid rgba(0, 0, 255, 0);
+  height: 300px;
+  width: 600px;
+}
+
+.container_dashboard
+{
+    justify-content: space-around;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    align-content: center;
+}
+.dateSort
+{
+    padding-top: 20px;
+}
+.currency_form
+{
+    padding: 25pt;
+    border: 3px solid rgba(255, 255, 255, 0.126);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.126);
+    
+}
+#conversion-rate-container
+{
+    font-size: larger;
+    color: #0F2027;
+}
+.content_currency
+{
+    display: grid;
+}
+
+.button_graph
+{
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(91, 154, 91);
+    padding: 3px;
+}
