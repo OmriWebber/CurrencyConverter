@@ -52,7 +52,7 @@ def login():
         # take the user-supplied password, hash it, and compare it to the hashed password in the database
         
         if user is None:
-            msg = 'Username dosnt exist.'
+            msg = 'Username dosnt exist. Please try again '
         elif not check_password_hash(user.password, password):
             msg = 'Incorrect password.'
         elif user:
