@@ -6,7 +6,8 @@
         <div class="loading-container">
             <div class="loading-spinner"></div>
         </div>
-        <div class="graph container">
+        <div class="graph container" id = "History_container">
+            <div class="grid_view_history">
             <div class="row">
                 <div class="col">
                     <div class="selectCurrency row">
@@ -14,7 +15,7 @@
                             <span>From</span><br>
                             <select name="currency-selector" id="graph-base-currency-selector"></select>
                         </div>
-                        <div class="col">
+                        <div class="SwitchCurrencies_around2">
                             <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
                         </div>
                         <div class="col">
@@ -26,7 +27,7 @@
                     
                 </div>
                 
-                <div class="col">
+                <div class="date_sort">
                     <div class="dateSort">
                         <button class="button" value="7" onclick="setDate(7)">
                             <span>7d</span>
@@ -48,8 +49,14 @@
                         </button>
                     </div>
                 </div>
+                
             </div>
-            
+            <div class="Instructions" >
+                <h3>Currency Converter Charts</h3><br>
+                <p>With this handy tool you can review market history from the past week</p>
+                <p>to 5 years ago select your two currencies and click the different time frames</p>
+            </div>
+            </div>
             <canvas id="myChart" width="400" height="200"></canvas>
         </div>
 
