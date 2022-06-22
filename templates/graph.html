@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en">
-    {% include ['head.html'] %}
-    <body>
-        {% include ['navbar.html'] %}
-        <div class="loading-container">
-            <div class="loading-spinner"></div>
-        </div>
-        <div class="graph container" id = "History_container">
-            <div class="grid_view_history">
+{% include ['head.html'] %}
+
+<body>
+    {% include ['navbar.html'] %}
+    <div class="loading-container">
+        <div class="loading-spinner"></div>
+    </div>
+    <div class="graph container" id="History_container">
+        <div class="grid_view_history">
             <div class="row">
                 <div class="col">
                     <div class="selectCurrency row">
@@ -16,7 +17,8 @@
                             <select name="currency-selector" id="graph-base-currency-selector"></select>
                         </div>
                         <div class="SwitchCurrencies_around2">
-                            <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
+                            <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon"
+                                    src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
                         </div>
                         <div class="col">
                             <span>To</span><br>
@@ -24,9 +26,9 @@
                         </div>
 
                     </div>
-                    
+
                 </div>
-                
+
                 <div class="date_sort">
                     <div class="dateSort">
                         <button class="button" value="7" onclick="setDate(7)">
@@ -49,22 +51,25 @@
                         </button>
                     </div>
                 </div>
-                
+
             </div>
-            <div class="Instructions" >
+            <div class="Instructions">
                 <h3>Currency Converter Charts</h3><br>
-                <p>With this handy tool you can review market history from the past week</p>
-                <p>to 5 years ago select your two currencies and click the different time frames</p>
+                <p>With this handy tool you can review market history from the past week all the way up to 5 years ago:
+                    select your two currencies and click the different time frames</p>
             </div>
-            </div>
-            <canvas id="myChart" width="400" height="200"></canvas>
         </div>
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="{{ url_for('static', filename='js/loader.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/graph.js') }}"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/loader.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/graph.js') }}"></script>
+</body>
+
 </html>
-

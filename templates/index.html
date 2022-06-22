@@ -4,91 +4,128 @@
 
 <body>
   {% include ['navbar.html'] %}
-  <div class="container_dashboard" style="display: -webkit-inline-;">
-    <div class="content-currency_converter">
+  <div class="main_page">
 
-      <form class="currency_form" action="{{ url_for('save_conversion') }}" method="post">
-        <h3>Convert Currencies</h3><br>
-        <input type="text" placeholder="Enter Value" name="input-amount-1" class="currency-input" id="input-amount-1">
-        <select name="currency-input-1" id="currency-selector-1" onchange="updatevalue()"></select>
-        <br>
-        <div class="col" id="SwitchCurrencies_around">
-          <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon2" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
-      </div>
-        <br>
-        <input type="text" name="input-amount-2" class="currency-input" id="input-amount-2">
-        <select name="currency-input-2" id="currency-selector-2" onchange="updatevalue()"></select>
-        <p id="conversion-rate-container"><span id="conversion-rate"></span></p>
-        <input class="button" type="submit" value="Save Conversion"><br>
-        <a href="" class="button"id="view_conversions">View Saved Conversions</a>
-        {% if msg %}
-        <div class="alert alert-success alert-dismissible">
-          <a href="#" class="close" data-bs-dismiss="alert" aria-label="close"
-            style="text-decoration: none;">&times;</a>
-          {{ msg }}
+    <div class=section1>
+      <div class="main_row">
+        <div class="main_col">
+          <div id="main_text_box">
+            <h1>some text box</h1>
+            <p>probably instructions</p>
+            <p>just putting this here for a clean layout</p><br>
+            <p>another line</p>
+            <p>another line</p>
+            <p>another line</p>
+          </div>
         </div>
-        {% endif %}
-      </form>
+      </div>
 
-      <!--Start of graph-->
-      <div class="graph container" id="graph_container">
-        <div class="row">
-          <div class="CurrencyGraphsearchBoxes">
-            <h3>Check the history</h3><br><br>
-            <div class="selectCurrency row"><br>
-              <div class="col">
-                <span>From</span><br>
-                <select name="currency-selector" id="graph-base-currency-selector"></select><br><br>
+      <div>
+
+        <div class="main_row">
+          <div class="main_col">
+
+            <form class="currency_form" action="{{ url_for('save_conversion') }}" method="post">
+              <h3>Convert Currencies</h3><br>
+              <input type="text" placeholder="Enter Value" name="input-amount-1" class="currency-input"
+                id="input-amount-1">
+              <select name="currency-input-1" id="currency-selector-1" onchange="updatevalue()"></select>
+              <br>
+              <div class="col" id="SwitchCurrencies_around">
+                <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon2"
+                    src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
               </div>
-              <div class="" id="SwitchCurrencies_around2">
-                <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon2" src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
-            </div><br><br>
-              <div class="col">
-                <span>To</span><br>
-                <select name="currency-selector" id="graph-convert-currency-selector"></select><br>
+              <br>
+              <input type="text" name="input-amount-2" class="currency-input" id="input-amount-2">
+              <select name="currency-input-2" id="currency-selector-2" onchange="updatevalue()"></select>
+              <p id="conversion-rate-container"><span id="conversion-rate"></span></p>
+              <input class="button" type="submit" value="Save Conversion"><br>
+              <a href="" class="button" id="view_conversions">View Saved Conversions</a>
+              {% if msg %}
+              <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-bs-dismiss="alert" aria-label="close"
+                  style="text-decoration: none;">&times;</a>
+                {{ msg }}
+              </div>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!--Start of graph-->
+    <div class="section2">
+      <div class="main_row_graph">
+        <div class="main_col_graph">
+
+
+
+          <div class=historical_data_main>
+            <div class="row">
+              <div class="CurrencyGraphsearchBoxes">
+                <h3>Check the history</h3><br><br>
+                <div class="selectCurrency row"><br>
+                  <div class="col">
+                    <span>From</span><br>
+                    <select name="currency-selector" id="graph-base-currency-selector"></select><br><br>
+                  </div>
+                  <div class="" id="SwitchCurrencies_around2">
+                    <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon2"
+                        src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
+                  </div><br><br>
+                  <div class="col">
+                    <span>To</span><br>
+                    <select name="currency-selector" id="graph-convert-currency-selector"></select><br>
+                  </div>
+
+                </div>
+
+
+
+                <div class="date_sort">
+                  <div class="dateSort2">
+                    <button class="button_graph" value="7" onclick="setDate(7)">
+                      <span>7Days</span>
+                    </button>
+                    <button class="button_graph" value="30" onclick="setDate(30)">
+                      <span>1Mth</span>
+                    </button>
+                    <button class="button_graph" value="180" onclick="setDate(180)">
+                      <span>6Mth</span>
+                    </button><br>
+                    <button class="button_graph" value="365" onclick="setDate(365)">
+                      <span>1YRS</span>
+                    </button>
+                    <button class="button_graph" value="730" onclick="setDate(730)">
+                      <span>2YRS</span>
+                    </button>
+                    <button class="button_graph" value="1826" onclick="setDate(1826)">
+                      <span>5YRS</span>
+                    </button>
+                  </div>
+
+                </div>
               </div>
 
-            </div>
-
-
-
-            <div class="date_sort">
-              <div class="dateSort2">
-                <button class="button_graph" value="7" onclick="setDate(7)">
-                  <span>7Days</span>
-                </button>
-                <button class="button_graph" value="30" onclick="setDate(30)">
-                  <span>1Mth</span>
-                </button>
-                <button class="button_graph" value="180" onclick="setDate(180)">
-                  <span>6Mth</span>
-                </button><br>
-                <button class="button_graph" value="365" onclick="setDate(365)">
-                  <span>1YRS</span>
-                </button>
-                <button class="button_graph" value="730" onclick="setDate(730)">
-                  <span>2YRS</span>
-                </button>
-                <button class="button_graph" value="1826" onclick="setDate(1826)">
-                  <span>5YRS</span>
-                </button>
-              </div>
-              
             </div>
           </div>
-          
+
         </div>
-      <div class="Shrink_graph">
-        <canvas id="myChart" width="300" height="200"></canvas>
-      </div>   
+
+        <div class="main_row_graph">
+          <div class="main_col_graph">
+
+            <div class="Shrink_graph">
+              <canvas id="myChart" width="300" height="200"></canvas>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 
-     
- 
-  </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
