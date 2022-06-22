@@ -641,101 +641,39 @@ only screen and (min-device-pixel-ratio : 1.5) {
     max-width: fit-content;
     height: 25%;
 }
-.main_col{
-    
-    column-width: 50%;
-    padding: 20px;
-    margin-bottom: -50px;
 
-}
-.main_row_graph{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: center;
-    flex-direction: row;
-}
-.main_col_graph{
-    max-width: fit-content;
-
-}
 .section1{
     display: flex;
     flex-wrap: wrap;
-    flex: auto;
-    align-items: stretch;
+    align-items: center;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
+    align-content: center;
+    margin-top: 20px;
 }
-.section2{
-    display: flex;
-    flex-wrap: wrap;
-    flex: auto;
-    align-items: stretch;
-    justify-content: space-evenly;
-    width: 100%;
- 
-}
-.main_page{
-    display: block;
-    resize: auto;
-}
-.Shrink_graph
-{
-    display: inline-block;
-    position: relative;
-    width: 100%;
-}
+
+
 
 #main_text_box{
     background: #ffffff5e;
     padding: 11px;
     border-radius: 11px;
-    resize: none;
-    padding-right: 40pt;
-    margin-bottom: 60px;
-    height: 415px;
-    width: 251px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column
 }
-#conversion-rate-container {
-    font-size: larger;
-    color: #0F2027;
-}
+
 .currency_form
 {
     background: #ffffff5e;
     padding: 11px;
     border-radius: 11px;
-}
-.CurrencyGraphsearchBoxes{
-    width: min-content;
-    padding: 3px;
-    background: #ffffff5e;
-    padding: 11px;
-    border-radius: 11px;
-    width: fit-content;
-
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
-
-
-.button_graph {
-    border: 1px solid grey;
-    border-radius: 5px;
-    color: white;
-    background-color: rgb(91, 154, 91);
-    padding: 3px;
-}
-
-#view_conversions {
-
-    border: 1px solid grey;
-    border-radius: 5px;
-    color: white;
-    background-color: rgb(53, 162, 225);
-    padding: 3px;
-}
 
 /*for the switch icon in check history*/
 #SwitchCurrencies_around {

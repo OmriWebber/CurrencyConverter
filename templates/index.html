@@ -7,23 +7,12 @@
   <div class="main_page">
 
     <div class=section1>
-      <div class="main_row">
-        <div class="main_col">
-          <div id="main_text_box">
-            <h1>some text box</h1>
-            <p>probably instructions</p>
-            <p>just putting this here for a clean layout</p><br>
-            <p>another line</p>
-            <p>another line</p>
-            <p>another line</p>
-          </div>
-        </div>
-      </div>
+      
 
-      <div>
+      
 
-        <div class="main_row">
-          <div class="main_col">
+        <div class="row">
+          <div class="col">
 
             <form class="currency_form" action="{{ url_for('save_conversion') }}" method="post">
               <h3>Convert Currencies</h3><br>
@@ -51,74 +40,22 @@
             </form>
           </div>
         </div>
-      </div>
-
-    </div>
-    <!--Start of graph-->
-    <div class="section2">
-
-          <div class=historical_data_main>
-            <div class="row">
-              <div class="CurrencyGraphsearchBoxes">
-                <h3>Check the history</h3><br>
-                <div class="selectCurrency row"><br>
-                  <div class="col">
-                    <span>From</span><br>
-                    <select name="currency-selector" id="graph-base-currency-selector"></select><br>                  </div>
-                  <div class="" id="SwitchCurrencies_around">
-                    <a class="switchCurrency" onclick="switchCurrency()"><img class="switchIcon2"
-                        src="{{ url_for('static', filename='img/repeat-solid.svg') }}"></a>
-                  </div><br>
-                  <div class="col">
-                    <span>To</span><br>
-                    <select name="currency-selector" id="graph-convert-currency-selector"></select><br>
-
-
-
-
-                <div class="date_sort">
-                  <div class="dateSort2">
-                    <button class="button_graph" value="7" onclick="setDate(7)">
-                      <span>7Days</span>
-                    </button>
-                    <button class="button_graph" value="30" onclick="setDate(30)">
-                      <span>1Mth</span>
-                    </button>
-                    <button class="button_graph" value="180" onclick="setDate(180)">
-                      <span>6Mth</span>
-                    </button><br>
-                    <button class="button_graph" value="365" onclick="setDate(365)">
-                      <span>1YRS</span>
-                    </button>
-                    <button class="button_graph" value="730" onclick="setDate(730)">
-                      <span>2YRS</span>
-                    </button>
-                    <button class="button_graph" value="1826" onclick="setDate(1826)">
-                      <span>5YRS</span>
-                    </button>
-                  </div>
-
-                </div>
-              </div>
-
+        <div class="row">
+          <div class="col">
+            <div id="main_text_box">
+              <h3>Currency Converter</h3>
+              <p>Current & historical exchange rates</p>
+              <p>Published by the European Central Bank</p><br>
+              <p>Rates are refreshed 16:00 CET (Central European Time)</p>
+              <p>Enter the value and currency you wish to convert from</p>
+              <p>Select the currency you would like to convert to and you are done!</p>
+              <p> Sign up for an account to save your conversions to a list for safe keeping</p>
             </div>
           </div>
-
         </div>
-
-
       </div>
 
-    </div>
-    <div class="main_row_graph">
-      <div class="main_col_graph">
 
-        <div class="Shrink_graph"style="position: relative; height:20vh; width:60vw ">
-          <canvas id="myChart" width="300" height="200"></canvas>
-        </div>
-    
-      </div>
-    </div>
   </div>
 
 
@@ -130,6 +67,7 @@
     crossorigin="anonymous"></script>
   <script src="{{ url_for('static', filename='js/loader.js') }}"></script>
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 
 
 </html>
