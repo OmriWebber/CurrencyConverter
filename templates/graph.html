@@ -10,7 +10,7 @@
     <div class="graph container" id="History_container">
         <div class="grid_view_history">
             <div class="row">
-                <div class="col">
+                <div class="col-6">
                     <div class="selectCurrency row">
                         <div class="col">
                             <span>From</span><br>
@@ -24,40 +24,38 @@
                             <span>To</span><br>
                             <select name="currency-selector" id="graph-convert-currency-selector"></select>
                         </div>
-
                     </div>
 
-                </div>
-
-                <div class="date_sort">
-                    <div class="dateSort">
-                        <button class="button" value="7" onclick="setDate(7)">
-                            <span>7d</span>
-                        </button>
-                        <button class="button" value="30" onclick="setDate(30)">
-                            <span>1m</span>
-                        </button>
-                        <button class="button" value="180" onclick="setDate(180)">
-                            <span>6m</span>
-                        </button>
-                        <button class="button" value="365" onclick="setDate(365)">
-                            <span>1y</span>
-                        </button>
-                        <button class="button" value="730" onclick="setDate(730)">
-                            <span>2y</span>
-                        </button>
-                        <button class="button" value="1826" onclick="setDate(1826)">
-                            <span>5y</span>
-                        </button>
+                    <div class="date_sort">
+                        <div class="dateSort">
+                            <button class="button" value="7" onclick="setDate(7)">
+                                <span>7d</span>
+                            </button>
+                            <button class="button" value="30" onclick="setDate(30)">
+                                <span>1m</span>
+                            </button>
+                            <button class="button" value="180" onclick="setDate(180)">
+                                <span>6m</span>
+                            </button>
+                            <button class="button" value="365" onclick="setDate(365)">
+                                <span>1y</span>
+                            </button>
+                            <button class="button" value="730" onclick="setDate(730)">
+                                <span>2y</span>
+                            </button>
+                            <button class="button" value="1826" onclick="setDate(1826)">
+                                <span>5y</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
+                <div class="col-5 p-3 Instructions">
+                    <h3>Currency Converter Charts</h3><br>
+                    <p>With this handy tool you can review market history from the past week all the way up to 5 years ago:
+                        select your two currencies and click the different time frames</p>
+                </div>
             </div>
-            <div class="Instructions">
-                <h3>Currency Converter Charts</h3><br>
-                <p>With this handy tool you can review market history from the past week all the way up to 5 years ago:
-                    select your two currencies and click the different time frames</p>
-            </div>
+            
         </div>
         <canvas id="myChart" width="400" height="200"></canvas>
     </div>

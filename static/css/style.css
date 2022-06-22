@@ -86,6 +86,7 @@ body .container {
 }
 
 input {
+    width: 100%;
     padding: 5px;
     margin-bottom: 10px;
     border: none;
@@ -186,7 +187,22 @@ input:focus {
 
 #conversion-rate-container {
     opacity: 0;
+    text-align:center;
     margin-top: 30px;
+}
+
+.max-width-button {
+    min-width: 70%;
+    -ms-flex-align: center;
+}
+
+.main_page .container {
+    padding: 50px;
+}
+
+.main_page .container .row .col-4, .main_page .container .row .col-6 {
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 5px;
 }
 
 .news {
@@ -207,6 +223,7 @@ input:focus {
 }
 
 select {
+    width: 100%;
     padding: 7px;
     margin-bottom: 10px;
     border: none;
@@ -277,7 +294,6 @@ select option {
 .switchCurrency {
     text-align: center;
     cursor: pointer;
-    padding: 10px;
 }
 
 .switchIcon {
@@ -289,7 +305,7 @@ select option {
 
 .switchIconConverter {
     height: 20px;
-    margin: 20px 10px 20px 0px;
+    margin: 20px 30px -20px 0px;
     filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(131deg) brightness(102%) contrast(101%);
 }
 
@@ -632,46 +648,6 @@ only screen and (min-device-pixel-ratio : 1.5) {
 
 ::placeholder {
     color: white;
-}
-
-/*-Trying out graph for main page-*/
-.main_row{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: fit-content;
-    height: 25%;
-}
-
-.section1{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
-    justify-content: space-around;
-    align-content: center;
-    margin-top: 20px;
-}
-
-
-
-#main_text_box{
-    background: #ffffff5e;
-    padding: 11px;
-    border-radius: 11px;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column
-}
-
-.currency_form
-{
-    background: #ffffff5e;
-    padding: 11px;
-    border-radius: 11px;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    margin-bottom: 20px;
 }
 
 
