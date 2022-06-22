@@ -243,9 +243,7 @@ select option {
     margin-bottom: 40px;
 }
 
-#myChart {
-    
-}
+
 
 .Instructions {
     background: #ffffff57;
@@ -667,8 +665,8 @@ only screen and (min-device-pixel-ratio : 1.5) {
     flex-wrap: wrap;
     flex: auto;
     align-items: stretch;
-    justify-content: space-evenly;
     width: 100%;
+    justify-content: center;
 }
 .section2{
     display: flex;
@@ -685,12 +683,11 @@ only screen and (min-device-pixel-ratio : 1.5) {
 }
 .Shrink_graph
 {
-  border: 1px solid rgba(0, 0, 255, 0);
-  height: 300px;
-  width: 600px;
-  margin-top: 30px;
-  margin-left: 30px;
+    display: inline-block;
+    position: relative;
+    width: 100%;
 }
+
 #main_text_box{
     background: #ffffff5e;
     padding: 11px;
@@ -713,12 +710,12 @@ only screen and (min-device-pixel-ratio : 1.5) {
 }
 .CurrencyGraphsearchBoxes{
     width: min-content;
-    padding: 20px;
+    padding: 3px;
     background: #ffffff5e;
     padding: 11px;
     border-radius: 11px;
-    height: 415px;
-    width: 251px;
+    width: fit-content;
+
 }
 
 
