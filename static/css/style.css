@@ -106,9 +106,9 @@ input:focus {
     color: white;
     background-color: rgba(255, 255, 255, 0);
 }
-/*                               Crypto Currency Styling */
+                    /* Crypto Currency Styling */
 #crypto-search {
-    min-width: 60%;
+    max-width: 60%;
 }
 
 #crypto-container {
@@ -200,8 +200,8 @@ input:focus {
     padding: 50px;
 }
 
-.main_page .container .row .col-4, .main_page .container .row .col-6 {
-    background-color: rgba(255,255,255,0.5);
+.main_page .container .row .col-4, .main_page .container .row .col-7 {
+    background-color: rgba(255,255,255,0.2);
     border-radius: 5px;
 }
 
@@ -263,7 +263,7 @@ select option {
 
 
 .Instructions {
-    background: #ffffff57;
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 11px;
     border-radius: 11px;
     margin-top: 20px;

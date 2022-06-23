@@ -5,8 +5,17 @@
 <body>
   {% include ['navbar.html'] %}
   <div class="main_page">
-
+    
     <div class="container">
+      {% if msg %}
+        <div class="row">
+          <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" style="text-decoration: none;">&times;</a>
+            {{ msg }}
+          </div>
+        </div>
+        
+      {% endif %}
         <div class="row">
           <div class="col-4 p-3">
             <form class="currency_form" action="{{ url_for('save_conversion') }}" method="post">
@@ -23,23 +32,17 @@
               <p id="conversion-rate-container"><span id="conversion-rate"></span></p>
               <input class="button max-width-button justify-content-center" type="submit" value="Save Conversion"><br>
               <a href="{{ url_for('profile') }}" class="button max-width-button" id="view_conversions">View Saved Conversions</a>
-              {% if msg %}
-              <div class="alert alert-success alert-dismissible">
-                <a href="#" class="close" data-bs-dismiss="alert" aria-label="close" style="text-decoration: none;">&times;</a>
-                {{ msg }}
-              </div>
-              {% endif %}
             </form>
           </div>
-          <div class="col-6 offset-1 p-3">
+          <div class="col-7 offset-1 p-3">
             <div id="main_text_box">
               <h3>Currency Converter</h3>
-              <p>Current & historical exchange rates</p>
-              <p>Published by the European Central Bank</p><br>
-              <p>Rates are refreshed 16:00 CET (Central European Time)</p>
+              <br>
+              <p>Current & historical exchange rates published by the European Central Bank</p>
+              <p>Rates are refreshed daily at 16:00 CET (Central European Time)</p>
               <p>Enter the value and currency you wish to convert from</p>
               <p>Select the currency you would like to convert to and you are done!</p>
-              <p> Sign up for an account to save your conversions to a list for safe keeping</p>
+              <p>Sign up for an account to save your conversions to a list for safe keeping</p>
             </div>
           </div>
         </div>
