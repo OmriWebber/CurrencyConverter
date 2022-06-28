@@ -5,12 +5,13 @@ $( document ).ready(function() {
     user_name = $('.user-name').text().slice(1,2);
     $('.user-letter').text(user_name.toUpperCase());
     // Load Currencies
-    fetch('https://api.frankfurter.app/currencies')
+    fetch('https://api.coingecko.com/api/v3/coins/')
     .then((data) => data.json())
     .then((data) => {
+        console.log(data);
         $.each(data, function(index, value) {
-            $("#news-currency-selector").append("<option class='test' value='"+ index + "'><span>" + value + "</span></option>");
-            $('#news-currency-selector option[value="USD"]').attr("selected",true);
+            $("#news-currency-selector").append("<option class='test' value='"+ value.id + "'><span>" + value.name + "</span></option>");
+            $('#news-currency-selector option[value="bitcoin"]').attr("selected",true);
         });
 
         var currency = $('#news-currency-selector option:selected').attr("value");
@@ -21,22 +22,22 @@ $( document ).ready(function() {
 
 function displayNews(currency){
     // Declare API query
+    loaded();
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '1fea878e98mshe6fef09caba44edp19ae28jsn8cc3adfa8363',
-            'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com'
+            'X-RapidAPI-Key': '9f889d0196mshf872e9f983ac8dep173652jsnbd9100263b81',
+            'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
         }
     };
 
-    var url = 'https://crypto-news-live3.p.rapidapi.com/news/cryptonews.com' + currency + '&lang=en';
+    var url = 'https://free-news.p.rapidapi.com/v1/search?q=' + currency + '&lang=en';
    
     // Fetch News from API
     fetch(url, options)
         .then((data) => data.json())
         .then((data) => {
             for(let i = 0; i < data.articles.length; i++) {
-                console.log(data);
                 var date = new Date(data.articles[i].published_date);
                 articles.innerHTML +=   "<div class='row article'>" + 
                                             "<div class='col-4'>" +
@@ -50,7 +51,7 @@ function displayNews(currency){
                                             "</div>" +    
                                         "</div>";
             }
-            loaded();
+            
     });    
 }
 
