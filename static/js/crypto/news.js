@@ -8,7 +8,6 @@ $( document ).ready(function() {
     fetch('https://api.coingecko.com/api/v3/coins/')
     .then((data) => data.json())
     .then((data) => {
-        console.log(data);
         $.each(data, function(index, value) {
             $("#news-currency-selector").append("<option class='test' value='"+ value.id + "'><span>" + value.name + "</span></option>");
             $('#news-currency-selector option[value="bitcoin"]').attr("selected",true);
