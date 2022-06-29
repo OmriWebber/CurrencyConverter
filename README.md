@@ -14,7 +14,7 @@ password: user
 Python 3.10
 
 
-###### Intructions
+###### Instructions
 
 Create Virtual Environment
 ```
